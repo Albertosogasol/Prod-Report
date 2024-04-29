@@ -65,6 +65,7 @@ Partial Class DbQueryForm
         Me.queryFormDataIdTextBox = New System.Windows.Forms.TextBox()
         Me.queryFormDataIdLabel = New System.Windows.Forms.Label()
         Me.queryFormDataManagerComboBox = New System.Windows.Forms.ComboBox()
+        Me.ManagersTableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.queryFormDataCommentTextBox = New System.Windows.Forms.TextBox()
         Me.queryFormDataCommentLabel = New System.Windows.Forms.Label()
         Me.queryFormDataProcessLabel = New System.Windows.Forms.Label()
@@ -88,14 +89,15 @@ Partial Class DbQueryForm
         Me.queryFormCloseButton = New System.Windows.Forms.Button()
         Me.Report_TableTableAdapter = New Prod_Report.Registro_ProduccionDataSetTableAdapters.Report_TableTableAdapter()
         Me.queryFormRefreshButton = New System.Windows.Forms.Button()
-        Me.ManagersTableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Managers_TableTableAdapter = New Prod_Report.Registro_ProduccionDataSetTableAdapters.Managers_TableTableAdapter()
+        Me.ManagersTableReportTableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.queryFormFilterGroupBox.SuspendLayout()
         CType(Me.DbQueryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ReportTableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Registro_ProduccionDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.queryFormDataGroupBox.SuspendLayout()
         CType(Me.ManagersTableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ManagersTableReportTableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'queryFormFilterInitDatePicker
@@ -239,8 +241,9 @@ Partial Class DbQueryForm
         '
         'queryFormFilterManagerComboBox
         '
+        Me.queryFormFilterManagerComboBox.DataSource = Me.ManagersTableBindingSource
+        Me.queryFormFilterManagerComboBox.DisplayMember = "type_Manager"
         Me.queryFormFilterManagerComboBox.FormattingEnabled = True
-        Me.queryFormFilterManagerComboBox.Items.AddRange(New Object() {"", "Felipe Castellano", "Roberto Chivite", "Miguel Ángel Gil", "Alberto Gonzaga", "Joaquín Llaque"})
         Me.queryFormFilterManagerComboBox.Location = New System.Drawing.Point(9, 122)
         Me.queryFormFilterManagerComboBox.Name = "queryFormFilterManagerComboBox"
         Me.queryFormFilterManagerComboBox.Size = New System.Drawing.Size(96, 21)
@@ -476,6 +479,11 @@ Partial Class DbQueryForm
         Me.queryFormDataManagerComboBox.Size = New System.Drawing.Size(96, 21)
         Me.queryFormDataManagerComboBox.TabIndex = 14
         '
+        'ManagersTableBindingSource
+        '
+        Me.ManagersTableBindingSource.DataMember = "Managers_Table"
+        Me.ManagersTableBindingSource.DataSource = Me.Registro_ProduccionDataSet
+        '
         'queryFormDataCommentTextBox
         '
         Me.queryFormDataCommentTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -672,14 +680,14 @@ Partial Class DbQueryForm
         Me.queryFormRefreshButton.Text = "Actualizar"
         Me.queryFormRefreshButton.UseVisualStyleBackColor = True
         '
-        'ManagersTableBindingSource
-        '
-        Me.ManagersTableBindingSource.DataMember = "Managers_Table"
-        Me.ManagersTableBindingSource.DataSource = Me.Registro_ProduccionDataSet
-        '
         'Managers_TableTableAdapter
         '
         Me.Managers_TableTableAdapter.ClearBeforeFill = True
+        '
+        'ManagersTableReportTableBindingSource
+        '
+        Me.ManagersTableReportTableBindingSource.DataMember = "Managers_TableReport_Table"
+        Me.ManagersTableReportTableBindingSource.DataSource = Me.ManagersTableBindingSource
         '
         'DbQueryForm
         '
@@ -703,6 +711,7 @@ Partial Class DbQueryForm
         Me.queryFormDataGroupBox.ResumeLayout(False)
         Me.queryFormDataGroupBox.PerformLayout()
         CType(Me.ManagersTableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ManagersTableReportTableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -773,4 +782,5 @@ Partial Class DbQueryForm
     Friend WithEvents type_AM As DataGridViewCheckBoxColumn
     Friend WithEvents ManagersTableBindingSource As BindingSource
     Friend WithEvents Managers_TableTableAdapter As Registro_ProduccionDataSetTableAdapters.Managers_TableTableAdapter
+    Friend WithEvents ManagersTableReportTableBindingSource As BindingSource
 End Class
