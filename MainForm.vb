@@ -448,6 +448,21 @@ Public Class MainForm
         End Try
     End Sub
 
+    'PROCEDIMIENTO PARA DESACTIVAR EL SCROLL DE LA LISTA DE MANAGERS
+    Public Sub ManagerComboBox_MouseWheel(sender As Object, e As MouseEventArgs) Handles managerComboBox.MouseWheel
+        'Manejar el evento MouseWheel para evitar que se propague
+        Dim mwe As HandledMouseEventArgs = DirectCast(e, HandledMouseEventArgs)
+        mwe.Handled = True
+        'Este procedimiento se añade para evitar errores a la hora de cargar datos. Al mover la rueda del ratón se cambiaba el Manager
+    End Sub
+
+    Public Sub ShiftComboBox_MouseWheel(sender As Object, e As MouseEventArgs) Handles shiftComboBox.MouseWheel
+        'Manejar el evento MouseWheel para evitar que se propague
+        Dim mwe As HandledMouseEventArgs = DirectCast(e, HandledMouseEventArgs)
+        mwe.Handled = True
+        'Este procedimiento se añade para evitar errores a la hora de cargar datos. Al mover la rueda del ratón se cambiaba el Manager
+    End Sub
+
 End Class
 
 

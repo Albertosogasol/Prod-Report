@@ -85,18 +85,18 @@ Public Class DbQueryForm
         'Copia de datos de DataGridView a TextBox correspondiente
         Try
             queryFormDataDatePicker.Value = DbQueryDataGridView.Rows(e.RowIndex).Cells(1).Value
-            queryFormDataWeekTextBox.Text = DbQueryDataGridView.Rows(e.RowIndex).Cells(6).Value
+            queryFormDataWeekTextBox.Text = DbQueryDataGridView.Rows(e.RowIndex).Cells(7).Value
             queryFormDataIdTextBox.Text = DbQueryDataGridView.Rows(e.RowIndex).Cells(0).Value
-            queryFormDataRefTextBox.Text = DbQueryDataGridView.Rows(e.RowIndex).Cells(2).Value
-            queryFormDataSage.Checked = DbQueryDataGridView.Rows(e.RowIndex).Cells(5).Value
-            queryFormDataQuantityTextBox.Text = DbQueryDataGridView.Rows(e.RowIndex).Cells(3).Value
-            queryFormDataScrapTextBox.Text = DbQueryDataGridView.Rows(e.RowIndex).Cells(4).Value
-            queryFormDataManagerComboBox.Text = DbQueryDataGridView.Rows(e.RowIndex).Cells(7).Value
-            queryFormDataShiftComboBox.Text = DbQueryDataGridView.Rows(e.RowIndex).Cells(8).Value
-            queryFormDataLineTextBox.Text = DbQueryDataGridView.Rows(e.RowIndex).Cells(10).Value
-            queryFormDataProcessComboBox.Text = DbQueryDataGridView.Rows(e.RowIndex).Cells(9).Value
-            queryFormDataCommentTextBox.Text = DbQueryDataGridView.Rows(e.RowIndex).Cells(11).Value
-            queryFormDataFinalRefTextBox.Text = DbQueryDataGridView.Rows(e.RowIndex).Cells(12).Value
+            queryFormDataRefTextBox.Text = DbQueryDataGridView.Rows(e.RowIndex).Cells(3).Value
+            queryFormDataSage.Checked = DbQueryDataGridView.Rows(e.RowIndex).Cells(6).Value
+            queryFormDataQuantityTextBox.Text = DbQueryDataGridView.Rows(e.RowIndex).Cells(4).Value
+            queryFormDataScrapTextBox.Text = DbQueryDataGridView.Rows(e.RowIndex).Cells(5).Value
+            queryFormDataManagerComboBox.Text = DbQueryDataGridView.Rows(e.RowIndex).Cells(8).Value
+            queryFormDataShiftComboBox.Text = DbQueryDataGridView.Rows(e.RowIndex).Cells(9).Value
+            queryFormDataLineTextBox.Text = DbQueryDataGridView.Rows(e.RowIndex).Cells(11).Value
+            queryFormDataProcessComboBox.Text = DbQueryDataGridView.Rows(e.RowIndex).Cells(10).Value
+            queryFormDataCommentTextBox.Text = DbQueryDataGridView.Rows(e.RowIndex).Cells(12).Value
+            queryFormDataFinalRefTextBox.Text = DbQueryDataGridView.Rows(e.RowIndex).Cells(2).Value
             queryFormDataAM.Checked = DbQueryDataGridView.Rows(e.RowIndex).Cells(13).Value
         Catch ex As Exception
             MsgBox("Error al copiar los datos: " & ex.Message, vbExclamation, "ERROR")
@@ -353,5 +353,27 @@ Public Class DbQueryForm
             MessageBox.Show("Primero debe seleccionar una entrada del registro.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Exit Sub
         End If
+    End Sub
+
+    'PROCEDIMIENTOS PARA DESACTIVAR EL SCROLL EN LAS COMBOBOX
+    Public Sub QueryFormDataManagerComboBox_MouseWheel(sender As Object, e As MouseEventArgs) Handles queryFormDataManagerComboBox.MouseWheel
+        'Manejar el evento MouseWheel para evitar que se propague
+        Dim mwe As HandledMouseEventArgs = DirectCast(e, HandledMouseEventArgs)
+        mwe.Handled = True
+        'Este procedimiento se añade para evitar errores a la hora de cargar datos. Al mover la rueda del ratón se cambiaba el Manager
+    End Sub
+
+    Public Sub QueryFormShiftComboBox_MouseWheel(sender As Object, e As MouseEventArgs) Handles queryFormDataShiftComboBox.MouseWheel
+        'Manejar el evento MouseWheel para evitar que se propague
+        Dim mwe As HandledMouseEventArgs = DirectCast(e, HandledMouseEventArgs)
+        mwe.Handled = True
+        'Este procedimiento se añade para evitar errores a la hora de cargar datos. Al mover la rueda del ratón se cambiaba el Manager
+    End Sub
+
+    Public Sub QueryFormDataProcessComboBox_MouseWheel(sender As Object, e As MouseEventArgs) Handles queryFormDataProcessComboBox.MouseWheel
+        'Manejar el evento MouseWheel para evitar que se propague
+        Dim mwe As HandledMouseEventArgs = DirectCast(e, HandledMouseEventArgs)
+        mwe.Handled = True
+        'Este procedimiento se añade para evitar errores a la hora de cargar datos. Al mover la rueda del ratón se cambiaba el Manager
     End Sub
 End Class

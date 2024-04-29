@@ -39,19 +39,6 @@ Partial Class MainForm
         Me.addDataButton = New System.Windows.Forms.Button()
         Me.Report_TableTableAdapter = New Prod_Report.Registro_ProduccionDataSetTableAdapters.Report_TableTableAdapter()
         Me.reportDataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.temp_Date = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.temp_Reference = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.temp_FinalRef = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.temp_Quantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.temp_Scrap = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.temp_SAGE = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.temp_Week = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.temp_Manager = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.temp_Shift = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.temp_Process = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.temp_Line = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.temp_Comments = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TempReportTableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Registro_ProduccionDataSet1 = New Prod_Report.Registro_ProduccionDataSet()
         Me.loadDataButton = New System.Windows.Forms.Button()
@@ -110,6 +97,19 @@ Partial Class MainForm
         Me.labelMailContact = New System.Windows.Forms.LinkLabel()
         Me.Managers_TableTableAdapter = New Prod_Report.Registro_ProduccionDataSetTableAdapters.Managers_TableTableAdapter()
         Me.Active_Managers_QueryTableAdapter = New Prod_Report.Registro_ProduccionDataSetTableAdapters.Active_Managers_QueryTableAdapter()
+        Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.temp_Date = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.temp_FinalRef = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.temp_Reference = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.temp_Quantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.temp_Scrap = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.temp_SAGE = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.temp_Week = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.temp_Manager = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.temp_Shift = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.temp_Process = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.temp_Line = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.temp_Comments = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.BosalLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ALLBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Registro_ProduccionDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -266,100 +266,13 @@ Partial Class MainForm
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.reportDataGridView1.AutoGenerateColumns = False
         Me.reportDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.reportDataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.temp_Date, Me.temp_Reference, Me.temp_FinalRef, Me.temp_Quantity, Me.temp_Scrap, Me.temp_SAGE, Me.temp_Week, Me.temp_Manager, Me.temp_Shift, Me.temp_Process, Me.temp_Line, Me.temp_Comments})
+        Me.reportDataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.temp_Date, Me.temp_FinalRef, Me.temp_Reference, Me.temp_Quantity, Me.temp_Scrap, Me.temp_SAGE, Me.temp_Week, Me.temp_Manager, Me.temp_Shift, Me.temp_Process, Me.temp_Line, Me.temp_Comments})
         Me.reportDataGridView1.DataSource = Me.TempReportTableBindingSource
         Me.reportDataGridView1.Location = New System.Drawing.Point(29, 427)
         Me.reportDataGridView1.Name = "reportDataGridView1"
         Me.reportDataGridView1.RowHeadersWidth = 20
         Me.reportDataGridView1.Size = New System.Drawing.Size(1067, 216)
         Me.reportDataGridView1.TabIndex = 11
-        '
-        'IdDataGridViewTextBoxColumn
-        '
-        Me.IdDataGridViewTextBoxColumn.DataPropertyName = "Id"
-        Me.IdDataGridViewTextBoxColumn.HeaderText = "Id"
-        Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
-        Me.IdDataGridViewTextBoxColumn.Width = 30
-        '
-        'temp_Date
-        '
-        Me.temp_Date.DataPropertyName = "temp_Date"
-        Me.temp_Date.HeaderText = "Fecha"
-        Me.temp_Date.Name = "temp_Date"
-        '
-        'temp_Reference
-        '
-        Me.temp_Reference.DataPropertyName = "temp_Reference"
-        Me.temp_Reference.HeaderText = "Referencia"
-        Me.temp_Reference.Name = "temp_Reference"
-        Me.temp_Reference.Width = 80
-        '
-        'temp_FinalRef
-        '
-        Me.temp_FinalRef.DataPropertyName = "temp_FinalRef"
-        Me.temp_FinalRef.HeaderText = "Ref. Final"
-        Me.temp_FinalRef.Name = "temp_FinalRef"
-        '
-        'temp_Quantity
-        '
-        Me.temp_Quantity.DataPropertyName = "temp_Quantity"
-        Me.temp_Quantity.HeaderText = "Cantidad"
-        Me.temp_Quantity.Name = "temp_Quantity"
-        Me.temp_Quantity.Width = 80
-        '
-        'temp_Scrap
-        '
-        Me.temp_Scrap.DataPropertyName = "temp_Scrap"
-        Me.temp_Scrap.HeaderText = "Scrap"
-        Me.temp_Scrap.Name = "temp_Scrap"
-        Me.temp_Scrap.Width = 80
-        '
-        'temp_SAGE
-        '
-        Me.temp_SAGE.DataPropertyName = "temp_SAGE"
-        Me.temp_SAGE.HeaderText = "SAGE"
-        Me.temp_SAGE.Name = "temp_SAGE"
-        Me.temp_SAGE.Width = 50
-        '
-        'temp_Week
-        '
-        Me.temp_Week.DataPropertyName = "temp_Week"
-        Me.temp_Week.HeaderText = "Semana"
-        Me.temp_Week.Name = "temp_Week"
-        Me.temp_Week.Width = 80
-        '
-        'temp_Manager
-        '
-        Me.temp_Manager.DataPropertyName = "temp_Manager"
-        Me.temp_Manager.HeaderText = "Encargado"
-        Me.temp_Manager.Name = "temp_Manager"
-        '
-        'temp_Shift
-        '
-        Me.temp_Shift.DataPropertyName = "temp_Shift"
-        Me.temp_Shift.HeaderText = "Turno"
-        Me.temp_Shift.Name = "temp_Shift"
-        Me.temp_Shift.Width = 60
-        '
-        'temp_Process
-        '
-        Me.temp_Process.DataPropertyName = "temp_Process"
-        Me.temp_Process.HeaderText = "Proceso"
-        Me.temp_Process.Name = "temp_Process"
-        '
-        'temp_Line
-        '
-        Me.temp_Line.DataPropertyName = "temp_Line"
-        Me.temp_Line.HeaderText = "Línea"
-        Me.temp_Line.Name = "temp_Line"
-        Me.temp_Line.Width = 50
-        '
-        'temp_Comments
-        '
-        Me.temp_Comments.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.temp_Comments.DataPropertyName = "temp_Comments"
-        Me.temp_Comments.HeaderText = "Comentarios"
-        Me.temp_Comments.Name = "temp_Comments"
         '
         'TempReportTableBindingSource
         '
@@ -882,6 +795,93 @@ Partial Class MainForm
         '
         Me.Active_Managers_QueryTableAdapter.ClearBeforeFill = True
         '
+        'IdDataGridViewTextBoxColumn
+        '
+        Me.IdDataGridViewTextBoxColumn.DataPropertyName = "Id"
+        Me.IdDataGridViewTextBoxColumn.HeaderText = "Id"
+        Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
+        Me.IdDataGridViewTextBoxColumn.Width = 30
+        '
+        'temp_Date
+        '
+        Me.temp_Date.DataPropertyName = "temp_Date"
+        Me.temp_Date.HeaderText = "Fecha"
+        Me.temp_Date.Name = "temp_Date"
+        '
+        'temp_FinalRef
+        '
+        Me.temp_FinalRef.DataPropertyName = "temp_FinalRef"
+        Me.temp_FinalRef.HeaderText = "Ref. Final"
+        Me.temp_FinalRef.Name = "temp_FinalRef"
+        '
+        'temp_Reference
+        '
+        Me.temp_Reference.DataPropertyName = "temp_Reference"
+        Me.temp_Reference.HeaderText = "Referencia"
+        Me.temp_Reference.Name = "temp_Reference"
+        Me.temp_Reference.Width = 80
+        '
+        'temp_Quantity
+        '
+        Me.temp_Quantity.DataPropertyName = "temp_Quantity"
+        Me.temp_Quantity.HeaderText = "Cantidad"
+        Me.temp_Quantity.Name = "temp_Quantity"
+        Me.temp_Quantity.Width = 80
+        '
+        'temp_Scrap
+        '
+        Me.temp_Scrap.DataPropertyName = "temp_Scrap"
+        Me.temp_Scrap.HeaderText = "Scrap"
+        Me.temp_Scrap.Name = "temp_Scrap"
+        Me.temp_Scrap.Width = 80
+        '
+        'temp_SAGE
+        '
+        Me.temp_SAGE.DataPropertyName = "temp_SAGE"
+        Me.temp_SAGE.HeaderText = "SAGE"
+        Me.temp_SAGE.Name = "temp_SAGE"
+        Me.temp_SAGE.Width = 50
+        '
+        'temp_Week
+        '
+        Me.temp_Week.DataPropertyName = "temp_Week"
+        Me.temp_Week.HeaderText = "Semana"
+        Me.temp_Week.Name = "temp_Week"
+        Me.temp_Week.Width = 80
+        '
+        'temp_Manager
+        '
+        Me.temp_Manager.DataPropertyName = "temp_Manager"
+        Me.temp_Manager.HeaderText = "Encargado"
+        Me.temp_Manager.Name = "temp_Manager"
+        '
+        'temp_Shift
+        '
+        Me.temp_Shift.DataPropertyName = "temp_Shift"
+        Me.temp_Shift.HeaderText = "Turno"
+        Me.temp_Shift.Name = "temp_Shift"
+        Me.temp_Shift.Width = 60
+        '
+        'temp_Process
+        '
+        Me.temp_Process.DataPropertyName = "temp_Process"
+        Me.temp_Process.HeaderText = "Proceso"
+        Me.temp_Process.Name = "temp_Process"
+        '
+        'temp_Line
+        '
+        Me.temp_Line.DataPropertyName = "temp_Line"
+        Me.temp_Line.HeaderText = "Línea"
+        Me.temp_Line.Name = "temp_Line"
+        Me.temp_Line.Width = 50
+        '
+        'temp_Comments
+        '
+        Me.temp_Comments.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.temp_Comments.DataPropertyName = "temp_Comments"
+        Me.temp_Comments.HeaderText = "Comentarios"
+        Me.temp_Comments.Name = "temp_Comments"
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
@@ -1041,19 +1041,6 @@ Partial Class MainForm
     Friend WithEvents scrapLabel As Label
     Friend WithEvents finalRefCheckBoxLogo As PictureBox
     Friend WithEvents scrapCheckBoxLogo As PictureBox
-    Friend WithEvents IdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents temp_Date As DataGridViewTextBoxColumn
-    Friend WithEvents temp_Reference As DataGridViewTextBoxColumn
-    Friend WithEvents temp_FinalRef As DataGridViewTextBoxColumn
-    Friend WithEvents temp_Quantity As DataGridViewTextBoxColumn
-    Friend WithEvents temp_Scrap As DataGridViewTextBoxColumn
-    Friend WithEvents temp_SAGE As DataGridViewCheckBoxColumn
-    Friend WithEvents temp_Week As DataGridViewTextBoxColumn
-    Friend WithEvents temp_Manager As DataGridViewTextBoxColumn
-    Friend WithEvents temp_Shift As DataGridViewTextBoxColumn
-    Friend WithEvents temp_Process As DataGridViewTextBoxColumn
-    Friend WithEvents temp_Line As DataGridViewTextBoxColumn
-    Friend WithEvents temp_Comments As DataGridViewTextBoxColumn
     Friend WithEvents ReferenceDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents Final_Ref As DataGridViewTextBoxColumn
     Friend WithEvents Process As DataGridViewTextBoxColumn
@@ -1067,4 +1054,17 @@ Partial Class MainForm
     Friend WithEvents Managers_TableTableAdapter As Registro_ProduccionDataSetTableAdapters.Managers_TableTableAdapter
     Friend WithEvents ActiveManagersQueryBindingSource As BindingSource
     Friend WithEvents Active_Managers_QueryTableAdapter As Registro_ProduccionDataSetTableAdapters.Active_Managers_QueryTableAdapter
+    Friend WithEvents IdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents temp_Date As DataGridViewTextBoxColumn
+    Friend WithEvents temp_FinalRef As DataGridViewTextBoxColumn
+    Friend WithEvents temp_Reference As DataGridViewTextBoxColumn
+    Friend WithEvents temp_Quantity As DataGridViewTextBoxColumn
+    Friend WithEvents temp_Scrap As DataGridViewTextBoxColumn
+    Friend WithEvents temp_SAGE As DataGridViewCheckBoxColumn
+    Friend WithEvents temp_Week As DataGridViewTextBoxColumn
+    Friend WithEvents temp_Manager As DataGridViewTextBoxColumn
+    Friend WithEvents temp_Shift As DataGridViewTextBoxColumn
+    Friend WithEvents temp_Process As DataGridViewTextBoxColumn
+    Friend WithEvents temp_Line As DataGridViewTextBoxColumn
+    Friend WithEvents temp_Comments As DataGridViewTextBoxColumn
 End Class
