@@ -402,11 +402,20 @@ Public Class DbQueryForm
     End Sub
 
     Private Sub queryFormFullLoadButton_Click(sender As Object, e As EventArgs) Handles queryFormFullLoadButton.Click
-        'Carga todos los datos en la tabla principal
+        'Carga todos los registros de la BBDD en la tabla principal
         'Se pregunta antes al usuario'
         Dim confirmResult As DialogResult = MessageBox.Show("Se van a cargar tods los datos en la tabla principal. Dependiendo de la cantidad de registros, esto podría ralentizar su pc. ¿Está seguro de que desea continuar? ", "¿Continuar?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If confirmResult = DialogResult.Yes Then
-            DbQueryDataGridView.DataSource = Registro_ProduccionDataSet.Report_Table
+            Dim query As String = "SELECT * FROM Report_Table WHERE type_Date BETWEEN #" & "01/01/2023" & "# AND #" & queryFormFilterEndDatePicker.Value.ToString("MM/dd/yyyy") & "#"
+            Try
+                'Consulta a la base de datos'
+                Dim queryAdapter As New OleDbDataAdapter(query, MainFunctions.connOleDbBuilder(MainFunctions.conStringBuilder()))
+                Dim queryTable As New DataTable()
+                queryAdapter.Fill(queryTable)
+                DbQueryDataGridView.DataSource = queryTable
+            Catch ex As Exception
+                MsgBox("Se ha producido un error al cargar los datos en la tabla principal." & ex.Message, vbExclamation, "ERROR")
+            End Try
         End If
     End Sub
 End Class
