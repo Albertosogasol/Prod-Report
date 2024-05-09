@@ -270,7 +270,8 @@ Public Class DbQueryForm
         queryFormDataCommentTextBox.Clear()
 
         'Recarga de la tabla
-        Me.Report_TableTableAdapter.Fill(Me.Registro_ProduccionDataSet.Report_Table)
+        'Me.Report_TableTableAdapter.Fill(Me.Registro_ProduccionDataSet.Report_Table)
+        queryFormDefaultDataGrid()
     End Sub
 
     Private Sub queryFormDataClearTextBox()
