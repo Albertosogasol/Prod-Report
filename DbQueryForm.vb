@@ -6,11 +6,31 @@ Public Class DbQueryForm
         Me.Managers_TableTableAdapter.Fill(Me.Registro_ProduccionDataSet.Managers_Table)
         'TODO: This line of code loads data into the 'Registro_ProduccionDataSet.Report_Table' table. You can move, or remove it, as needed.
         'Carga todos los datos de la base de datos en el DataGridView al cargar la ventana del formulario
-        Me.Report_TableTableAdapter.Fill(Me.Registro_ProduccionDataSet.Report_Table)
+        'Me.Report_TableTableAdapter.Fill(Me.Registro_ProduccionDataSet.Report_Table)
+
+        'Fecha inicial de hoy como predeterminada
+        queryFormFilterInitDatePicker.Value = DateTime.Now
         'Fecha final de hoy como predeterminada
         Me.queryFormFilterEndDatePicker.Value = DateTime.Now
         Me.queryFormDataDatePicker.Value = DateTime.Now
         queryFormDataManagerComboBox.SelectedIndex = -1
+        'Aplica el filtro a la tabla'
+        queryFormDefaultDataGrid()
+    End Sub
+
+    Private Sub queryFormDefaultDataGrid()
+        'Aplica un filtro de fecha hoy-hoy para que no se cargue la tabla con todos los datos completos
+        'Cambio aplicado el 09/05/2024 obligado por la gran cantidad de datos almacenados en report_table
+        Dim query As String = "SELECT * FROM Report_Table WHERE type_Date BETWEEN #" & queryFormFilterInitDatePicker.Value.ToString("MM/dd/yyyy") & "# AND #" & queryFormFilterEndDatePicker.Value.ToString("MM/dd/yyyy") & "#"
+        Try
+            'Consulta a la base de datos'
+            Dim queryAdapter As New OleDbDataAdapter(query, MainFunctions.connOleDbBuilder(MainFunctions.conStringBuilder()))
+            Dim queryTable As New DataTable()
+            queryAdapter.Fill(queryTable)
+            DbQueryDataGridView.DataSource = queryTable
+        Catch ex As Exception
+            MsgBox("Se ha producido un error al cargar los datos en la tabla principal." & ex.Message, vbExclamation, "ERROR")
+        End Try
     End Sub
 
     Private Sub queryFormFilterSearchButton_Click(sender As Object, e As EventArgs) Handles queryFormFilterSearchButton.Click
@@ -63,7 +83,8 @@ Public Class DbQueryForm
 
     Private Sub queryFormFilterCleanButton_Click(sender As Object, e As EventArgs) Handles queryFormFilterCleanButton.Click
         'Limpia todos los filtros 
-        queryFormFilterInitDatePicker.Value = New Date(2023, 10, 16)
+        'queryFormFilterInitDatePicker.Value = New Date(2023, 10, 16)
+        queryFormFilterInitDatePicker.Value = DateTime.Now
         queryFormFilterEndDatePicker.Value = DateTime.Now
         queryFormFilterRefTextBox.Clear()
         queryFormFilterManagerComboBox.SelectedIndex = -1
@@ -71,7 +92,10 @@ Public Class DbQueryForm
         queryFormFilterShiftComboBox.SelectedIndex = -1
 
         'Recarga la DataGridView con todos los valores
-        DbQueryDataGridView.DataSource = Registro_ProduccionDataSet.Report_Table
+        queryFormDefaultDataGrid()
+        'Método antiguo que cargaba toda la tabla. Empezaba a ser demasiado lenta la carga de muchos registros. Se filtra por la fecha actual
+        'DbQueryDataGridView.DataSource = Registro_ProduccionDataSet.Report_Table 
+
 
     End Sub
 
@@ -375,5 +399,14 @@ Public Class DbQueryForm
         Dim mwe As HandledMouseEventArgs = DirectCast(e, HandledMouseEventArgs)
         mwe.Handled = True
         'Este procedimiento se añade para evitar errores a la hora de cargar datos. Al mover la rueda del ratón se cambiaba el Manager
+    End Sub
+
+    Private Sub queryFormFullLoadButton_Click(sender As Object, e As EventArgs) Handles queryFormFullLoadButton.Click
+        'Carga todos los datos en la tabla principal
+        'Se pregunta antes al usuario'
+        Dim confirmResult As DialogResult = MessageBox.Show("Se van a cargar tods los datos en la tabla principal. Dependiendo de la cantidad de registros, esto podría ralentizar su pc. ¿Está seguro de que desea continuar? ", "¿Continuar?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If confirmResult = DialogResult.Yes Then
+            DbQueryDataGridView.DataSource = Registro_ProduccionDataSet.Report_Table
+        End If
     End Sub
 End Class

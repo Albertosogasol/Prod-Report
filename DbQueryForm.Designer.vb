@@ -39,9 +39,24 @@ Partial Class DbQueryForm
         Me.queryFormFilterWeekLabel = New System.Windows.Forms.Label()
         Me.queryFormFilterManagerLabel = New System.Windows.Forms.Label()
         Me.queryFormFilterManagerComboBox = New System.Windows.Forms.ComboBox()
-        Me.ManagersTableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ManagersTableBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.Registro_ProduccionDataSet = New Prod_Report.Registro_ProduccionDataSet()
+        Me.ManagersTableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DbQueryDataGridView = New System.Windows.Forms.DataGridView()
+        Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TypeDateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TypeFinalRefDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TypeReferenceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TypeQuantityDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TypeScrapDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TypeSAGEDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.TypeWeekDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TypeManagerDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TypeShiftDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TypeProcessDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TypeLineDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TypeCommentsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.type_AM = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.ReportTableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.queryFormDataGroupBox = New System.Windows.Forms.GroupBox()
         Me.queryFormDeleteButton = New System.Windows.Forms.Button()
@@ -77,31 +92,17 @@ Partial Class DbQueryForm
         Me.queryFormRefreshButton = New System.Windows.Forms.Button()
         Me.Managers_TableTableAdapter = New Prod_Report.Registro_ProduccionDataSetTableAdapters.Managers_TableTableAdapter()
         Me.ManagersTableReportTableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TypeDateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TypeFinalRefDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TypeReferenceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TypeQuantityDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TypeScrapDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TypeSAGEDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.TypeWeekDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TypeManagerDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TypeShiftDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TypeProcessDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TypeLineDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TypeCommentsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.type_AM = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.ManagersTableReportTableBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ManagersTableBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.queryFormFullLoadButton = New System.Windows.Forms.Button()
         Me.queryFormFilterGroupBox.SuspendLayout()
-        CType(Me.ManagersTableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ManagersTableBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Registro_ProduccionDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ManagersTableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbQueryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ReportTableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.queryFormDataGroupBox.SuspendLayout()
         CType(Me.ManagersTableReportTableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ManagersTableReportTableBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ManagersTableBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'queryFormFilterInitDatePicker
@@ -179,6 +180,7 @@ Partial Class DbQueryForm
         'queryFormFilterGroupBox
         '
         Me.queryFormFilterGroupBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.queryFormFilterGroupBox.Controls.Add(Me.queryFormFullLoadButton)
         Me.queryFormFilterGroupBox.Controls.Add(Me.queryFormFilterCleanButton)
         Me.queryFormFilterGroupBox.Controls.Add(Me.queryFormFilterSearchButton)
         Me.queryFormFilterGroupBox.Controls.Add(Me.queryFormFilterWeekTextBox)
@@ -202,7 +204,7 @@ Partial Class DbQueryForm
         '
         'queryFormFilterCleanButton
         '
-        Me.queryFormFilterCleanButton.Location = New System.Drawing.Point(235, 115)
+        Me.queryFormFilterCleanButton.Location = New System.Drawing.Point(235, 74)
         Me.queryFormFilterCleanButton.Name = "queryFormFilterCleanButton"
         Me.queryFormFilterCleanButton.Size = New System.Drawing.Size(69, 30)
         Me.queryFormFilterCleanButton.TabIndex = 13
@@ -211,7 +213,7 @@ Partial Class DbQueryForm
         '
         'queryFormFilterSearchButton
         '
-        Me.queryFormFilterSearchButton.Location = New System.Drawing.Point(235, 65)
+        Me.queryFormFilterSearchButton.Location = New System.Drawing.Point(235, 31)
         Me.queryFormFilterSearchButton.Name = "queryFormFilterSearchButton"
         Me.queryFormFilterSearchButton.Size = New System.Drawing.Size(69, 30)
         Me.queryFormFilterSearchButton.TabIndex = 12
@@ -253,15 +255,20 @@ Partial Class DbQueryForm
         Me.queryFormFilterManagerComboBox.Size = New System.Drawing.Size(96, 21)
         Me.queryFormFilterManagerComboBox.TabIndex = 8
         '
-        'ManagersTableBindingSource
+        'ManagersTableBindingSource1
         '
-        Me.ManagersTableBindingSource.DataMember = "Managers_Table"
-        Me.ManagersTableBindingSource.DataSource = Me.Registro_ProduccionDataSet
+        Me.ManagersTableBindingSource1.DataMember = "Managers_Table"
+        Me.ManagersTableBindingSource1.DataSource = Me.Registro_ProduccionDataSet
         '
         'Registro_ProduccionDataSet
         '
         Me.Registro_ProduccionDataSet.DataSetName = "Registro_ProduccionDataSet"
         Me.Registro_ProduccionDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'ManagersTableBindingSource
+        '
+        Me.ManagersTableBindingSource.DataMember = "Managers_Table"
+        Me.ManagersTableBindingSource.DataSource = Me.Registro_ProduccionDataSet
         '
         'DbQueryDataGridView
         '
@@ -278,6 +285,101 @@ Partial Class DbQueryForm
         Me.DbQueryDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.DbQueryDataGridView.Size = New System.Drawing.Size(1028, 340)
         Me.DbQueryDataGridView.TabIndex = 9
+        '
+        'IdDataGridViewTextBoxColumn
+        '
+        Me.IdDataGridViewTextBoxColumn.DataPropertyName = "Id"
+        Me.IdDataGridViewTextBoxColumn.HeaderText = "Id"
+        Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
+        Me.IdDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
+        Me.IdDataGridViewTextBoxColumn.Width = 40
+        '
+        'TypeDateDataGridViewTextBoxColumn
+        '
+        Me.TypeDateDataGridViewTextBoxColumn.DataPropertyName = "type_Date"
+        Me.TypeDateDataGridViewTextBoxColumn.HeaderText = "Fecha"
+        Me.TypeDateDataGridViewTextBoxColumn.Name = "TypeDateDataGridViewTextBoxColumn"
+        '
+        'TypeFinalRefDataGridViewTextBoxColumn
+        '
+        Me.TypeFinalRefDataGridViewTextBoxColumn.DataPropertyName = "type_FinalRef"
+        Me.TypeFinalRefDataGridViewTextBoxColumn.HeaderText = "Ref. Final"
+        Me.TypeFinalRefDataGridViewTextBoxColumn.Name = "TypeFinalRefDataGridViewTextBoxColumn"
+        '
+        'TypeReferenceDataGridViewTextBoxColumn
+        '
+        Me.TypeReferenceDataGridViewTextBoxColumn.DataPropertyName = "type_Reference"
+        Me.TypeReferenceDataGridViewTextBoxColumn.HeaderText = "Referencia"
+        Me.TypeReferenceDataGridViewTextBoxColumn.Name = "TypeReferenceDataGridViewTextBoxColumn"
+        Me.TypeReferenceDataGridViewTextBoxColumn.Width = 80
+        '
+        'TypeQuantityDataGridViewTextBoxColumn
+        '
+        Me.TypeQuantityDataGridViewTextBoxColumn.DataPropertyName = "type_Quantity"
+        Me.TypeQuantityDataGridViewTextBoxColumn.HeaderText = "Cantidad"
+        Me.TypeQuantityDataGridViewTextBoxColumn.Name = "TypeQuantityDataGridViewTextBoxColumn"
+        Me.TypeQuantityDataGridViewTextBoxColumn.Width = 80
+        '
+        'TypeScrapDataGridViewTextBoxColumn
+        '
+        Me.TypeScrapDataGridViewTextBoxColumn.DataPropertyName = "type_Scrap"
+        Me.TypeScrapDataGridViewTextBoxColumn.HeaderText = "Scrap"
+        Me.TypeScrapDataGridViewTextBoxColumn.Name = "TypeScrapDataGridViewTextBoxColumn"
+        Me.TypeScrapDataGridViewTextBoxColumn.Width = 80
+        '
+        'TypeSAGEDataGridViewCheckBoxColumn
+        '
+        Me.TypeSAGEDataGridViewCheckBoxColumn.DataPropertyName = "type_SAGE"
+        Me.TypeSAGEDataGridViewCheckBoxColumn.HeaderText = "SAGE"
+        Me.TypeSAGEDataGridViewCheckBoxColumn.Name = "TypeSAGEDataGridViewCheckBoxColumn"
+        Me.TypeSAGEDataGridViewCheckBoxColumn.Width = 50
+        '
+        'TypeWeekDataGridViewTextBoxColumn
+        '
+        Me.TypeWeekDataGridViewTextBoxColumn.DataPropertyName = "type_Week"
+        Me.TypeWeekDataGridViewTextBoxColumn.HeaderText = "Semana"
+        Me.TypeWeekDataGridViewTextBoxColumn.Name = "TypeWeekDataGridViewTextBoxColumn"
+        Me.TypeWeekDataGridViewTextBoxColumn.Width = 80
+        '
+        'TypeManagerDataGridViewTextBoxColumn
+        '
+        Me.TypeManagerDataGridViewTextBoxColumn.DataPropertyName = "type_Manager"
+        Me.TypeManagerDataGridViewTextBoxColumn.HeaderText = "Encargado"
+        Me.TypeManagerDataGridViewTextBoxColumn.Name = "TypeManagerDataGridViewTextBoxColumn"
+        '
+        'TypeShiftDataGridViewTextBoxColumn
+        '
+        Me.TypeShiftDataGridViewTextBoxColumn.DataPropertyName = "type_Shift"
+        Me.TypeShiftDataGridViewTextBoxColumn.HeaderText = "Turno"
+        Me.TypeShiftDataGridViewTextBoxColumn.Name = "TypeShiftDataGridViewTextBoxColumn"
+        Me.TypeShiftDataGridViewTextBoxColumn.Width = 60
+        '
+        'TypeProcessDataGridViewTextBoxColumn
+        '
+        Me.TypeProcessDataGridViewTextBoxColumn.DataPropertyName = "type_Process"
+        Me.TypeProcessDataGridViewTextBoxColumn.HeaderText = "Proceso"
+        Me.TypeProcessDataGridViewTextBoxColumn.Name = "TypeProcessDataGridViewTextBoxColumn"
+        '
+        'TypeLineDataGridViewTextBoxColumn
+        '
+        Me.TypeLineDataGridViewTextBoxColumn.DataPropertyName = "type_Line"
+        Me.TypeLineDataGridViewTextBoxColumn.HeaderText = "Línea"
+        Me.TypeLineDataGridViewTextBoxColumn.Name = "TypeLineDataGridViewTextBoxColumn"
+        Me.TypeLineDataGridViewTextBoxColumn.Width = 50
+        '
+        'TypeCommentsDataGridViewTextBoxColumn
+        '
+        Me.TypeCommentsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.TypeCommentsDataGridViewTextBoxColumn.DataPropertyName = "type_Comments"
+        Me.TypeCommentsDataGridViewTextBoxColumn.HeaderText = "Comentarios"
+        Me.TypeCommentsDataGridViewTextBoxColumn.Name = "TypeCommentsDataGridViewTextBoxColumn"
+        '
+        'type_AM
+        '
+        Me.type_AM.DataPropertyName = "type_AM"
+        Me.type_AM.HeaderText = "type_AM"
+        Me.type_AM.Name = "type_AM"
+        Me.type_AM.Visible = False
         '
         'ReportTableBindingSource
         '
@@ -598,110 +700,19 @@ Partial Class DbQueryForm
         Me.ManagersTableReportTableBindingSource.DataMember = "Managers_TableReport_Table"
         Me.ManagersTableReportTableBindingSource.DataSource = Me.ManagersTableBindingSource
         '
-        'IdDataGridViewTextBoxColumn
-        '
-        Me.IdDataGridViewTextBoxColumn.DataPropertyName = "Id"
-        Me.IdDataGridViewTextBoxColumn.HeaderText = "Id"
-        Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
-        Me.IdDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
-        Me.IdDataGridViewTextBoxColumn.Width = 40
-        '
-        'TypeDateDataGridViewTextBoxColumn
-        '
-        Me.TypeDateDataGridViewTextBoxColumn.DataPropertyName = "type_Date"
-        Me.TypeDateDataGridViewTextBoxColumn.HeaderText = "Fecha"
-        Me.TypeDateDataGridViewTextBoxColumn.Name = "TypeDateDataGridViewTextBoxColumn"
-        '
-        'TypeFinalRefDataGridViewTextBoxColumn
-        '
-        Me.TypeFinalRefDataGridViewTextBoxColumn.DataPropertyName = "type_FinalRef"
-        Me.TypeFinalRefDataGridViewTextBoxColumn.HeaderText = "Ref. Final"
-        Me.TypeFinalRefDataGridViewTextBoxColumn.Name = "TypeFinalRefDataGridViewTextBoxColumn"
-        '
-        'TypeReferenceDataGridViewTextBoxColumn
-        '
-        Me.TypeReferenceDataGridViewTextBoxColumn.DataPropertyName = "type_Reference"
-        Me.TypeReferenceDataGridViewTextBoxColumn.HeaderText = "Referencia"
-        Me.TypeReferenceDataGridViewTextBoxColumn.Name = "TypeReferenceDataGridViewTextBoxColumn"
-        Me.TypeReferenceDataGridViewTextBoxColumn.Width = 80
-        '
-        'TypeQuantityDataGridViewTextBoxColumn
-        '
-        Me.TypeQuantityDataGridViewTextBoxColumn.DataPropertyName = "type_Quantity"
-        Me.TypeQuantityDataGridViewTextBoxColumn.HeaderText = "Cantidad"
-        Me.TypeQuantityDataGridViewTextBoxColumn.Name = "TypeQuantityDataGridViewTextBoxColumn"
-        Me.TypeQuantityDataGridViewTextBoxColumn.Width = 80
-        '
-        'TypeScrapDataGridViewTextBoxColumn
-        '
-        Me.TypeScrapDataGridViewTextBoxColumn.DataPropertyName = "type_Scrap"
-        Me.TypeScrapDataGridViewTextBoxColumn.HeaderText = "Scrap"
-        Me.TypeScrapDataGridViewTextBoxColumn.Name = "TypeScrapDataGridViewTextBoxColumn"
-        Me.TypeScrapDataGridViewTextBoxColumn.Width = 80
-        '
-        'TypeSAGEDataGridViewCheckBoxColumn
-        '
-        Me.TypeSAGEDataGridViewCheckBoxColumn.DataPropertyName = "type_SAGE"
-        Me.TypeSAGEDataGridViewCheckBoxColumn.HeaderText = "SAGE"
-        Me.TypeSAGEDataGridViewCheckBoxColumn.Name = "TypeSAGEDataGridViewCheckBoxColumn"
-        Me.TypeSAGEDataGridViewCheckBoxColumn.Width = 50
-        '
-        'TypeWeekDataGridViewTextBoxColumn
-        '
-        Me.TypeWeekDataGridViewTextBoxColumn.DataPropertyName = "type_Week"
-        Me.TypeWeekDataGridViewTextBoxColumn.HeaderText = "Semana"
-        Me.TypeWeekDataGridViewTextBoxColumn.Name = "TypeWeekDataGridViewTextBoxColumn"
-        Me.TypeWeekDataGridViewTextBoxColumn.Width = 80
-        '
-        'TypeManagerDataGridViewTextBoxColumn
-        '
-        Me.TypeManagerDataGridViewTextBoxColumn.DataPropertyName = "type_Manager"
-        Me.TypeManagerDataGridViewTextBoxColumn.HeaderText = "Encargado"
-        Me.TypeManagerDataGridViewTextBoxColumn.Name = "TypeManagerDataGridViewTextBoxColumn"
-        '
-        'TypeShiftDataGridViewTextBoxColumn
-        '
-        Me.TypeShiftDataGridViewTextBoxColumn.DataPropertyName = "type_Shift"
-        Me.TypeShiftDataGridViewTextBoxColumn.HeaderText = "Turno"
-        Me.TypeShiftDataGridViewTextBoxColumn.Name = "TypeShiftDataGridViewTextBoxColumn"
-        Me.TypeShiftDataGridViewTextBoxColumn.Width = 60
-        '
-        'TypeProcessDataGridViewTextBoxColumn
-        '
-        Me.TypeProcessDataGridViewTextBoxColumn.DataPropertyName = "type_Process"
-        Me.TypeProcessDataGridViewTextBoxColumn.HeaderText = "Proceso"
-        Me.TypeProcessDataGridViewTextBoxColumn.Name = "TypeProcessDataGridViewTextBoxColumn"
-        '
-        'TypeLineDataGridViewTextBoxColumn
-        '
-        Me.TypeLineDataGridViewTextBoxColumn.DataPropertyName = "type_Line"
-        Me.TypeLineDataGridViewTextBoxColumn.HeaderText = "Línea"
-        Me.TypeLineDataGridViewTextBoxColumn.Name = "TypeLineDataGridViewTextBoxColumn"
-        Me.TypeLineDataGridViewTextBoxColumn.Width = 50
-        '
-        'TypeCommentsDataGridViewTextBoxColumn
-        '
-        Me.TypeCommentsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.TypeCommentsDataGridViewTextBoxColumn.DataPropertyName = "type_Comments"
-        Me.TypeCommentsDataGridViewTextBoxColumn.HeaderText = "Comentarios"
-        Me.TypeCommentsDataGridViewTextBoxColumn.Name = "TypeCommentsDataGridViewTextBoxColumn"
-        '
-        'type_AM
-        '
-        Me.type_AM.DataPropertyName = "type_AM"
-        Me.type_AM.HeaderText = "type_AM"
-        Me.type_AM.Name = "type_AM"
-        Me.type_AM.Visible = False
-        '
         'ManagersTableReportTableBindingSource1
         '
         Me.ManagersTableReportTableBindingSource1.DataMember = "Managers_TableReport_Table"
         Me.ManagersTableReportTableBindingSource1.DataSource = Me.ManagersTableBindingSource
         '
-        'ManagersTableBindingSource1
+        'queryFormFullLoadButton
         '
-        Me.ManagersTableBindingSource1.DataMember = "Managers_Table"
-        Me.ManagersTableBindingSource1.DataSource = Me.Registro_ProduccionDataSet
+        Me.queryFormFullLoadButton.Location = New System.Drawing.Point(235, 116)
+        Me.queryFormFullLoadButton.Name = "queryFormFullLoadButton"
+        Me.queryFormFullLoadButton.Size = New System.Drawing.Size(69, 45)
+        Me.queryFormFullLoadButton.TabIndex = 14
+        Me.queryFormFullLoadButton.Text = "Cargar todo"
+        Me.queryFormFullLoadButton.UseVisualStyleBackColor = True
         '
         'DbQueryForm
         '
@@ -719,15 +730,15 @@ Partial Class DbQueryForm
         Me.Text = "Consultar registros"
         Me.queryFormFilterGroupBox.ResumeLayout(False)
         Me.queryFormFilterGroupBox.PerformLayout()
-        CType(Me.ManagersTableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ManagersTableBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Registro_ProduccionDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ManagersTableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DbQueryDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ReportTableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.queryFormDataGroupBox.ResumeLayout(False)
         Me.queryFormDataGroupBox.PerformLayout()
         CType(Me.ManagersTableReportTableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ManagersTableReportTableBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ManagersTableBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -801,4 +812,5 @@ Partial Class DbQueryForm
     Friend WithEvents type_AM As DataGridViewCheckBoxColumn
     Friend WithEvents ManagersTableBindingSource1 As BindingSource
     Friend WithEvents ManagersTableReportTableBindingSource1 As BindingSource
+    Friend WithEvents queryFormFullLoadButton As Button
 End Class
