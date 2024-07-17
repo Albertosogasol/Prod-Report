@@ -10,13 +10,11 @@ Module MainFunctions
         dbProvider = "Provider=Microsoft.ACE.OLEDB.12.0; "
 
         'BD BUENA
-        dbSource = "Data Source=\\n054fp03\DocCompartido2\Producción\021.- Registro Produccion\DB\Static\Registro_Produccion.accdb" 'VALOR A MODIFICAR SI CAMBIA LA RUTA'
+        dbSource = "Data Source=RUTA_DE_BASE_DATOS" 'VALOR A MODIFICAR SI CAMBIA LA RUTA'
 
         'BD con contraseña
-        'dbSource = "Data Source=\\n054fp03\DocCompartido2\Producción\021.- Registro Produccion\DB\Static\Registro_Produccion.accdb;Persist Security Info=True;Jet OLEDB:Database Password=Alberto"
+        'dbSource = "Data Source=RUTA_DE_BASE_DATOS;Persist Security Info=True;Jet OLEDB:Database Password=CONTRASEÑA"
 
-        'BD Pruebas
-        'dbSource = "Data Source=\\n054fp03\DocCompartido2\Producción\021.- Registro Produccion\DB\Registro_Produccion.accdb"
         Dim con As String
         con = dbProvider & dbSource
 
